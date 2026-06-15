@@ -34,7 +34,8 @@ public class VideoDownloaderService {
 
     // Find the yt-dlp and ffmpeg executables relative to workspace
     private String getBinaryPath(String binaryName) {
-        String ext = ".exe";
+        String os = System.getProperty("os.name").toLowerCase();
+        String ext = os.contains("win") ? ".exe" : "";
         String userDir = System.getProperty("user.dir");
         
         // Check standard paths
