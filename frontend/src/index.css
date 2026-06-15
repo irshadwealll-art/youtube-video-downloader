@@ -605,3 +605,184 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* Mobile Responsiveness Optimizations (Phones) */
+@media (max-width: 480px) {
+  #root {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .header {
+    margin-bottom: 0.5rem;
+  }
+
+  .app-title {
+    font-size: 2rem;
+  }
+
+  .logo-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    border-radius: 0.75rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 1.25rem 1rem;
+    border-radius: 1rem;
+  }
+
+  .search-form {
+    gap: 0.5rem;
+  }
+
+  .input-field {
+    padding: 0.85rem 1rem 0.85rem 2.5rem;
+    font-size: 0.9rem;
+  }
+
+  .input-icon {
+    left: 0.85rem;
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+  }
+
+  .video-preview {
+    gap: 1rem;
+  }
+
+  .video-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .uploader-name {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .tabs-container {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .tab-headers {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+  }
+
+  .tab-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .format-list {
+    max-height: 280px;
+    padding-right: 0.25rem;
+  }
+
+  .format-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem;
+    border-radius: 0.6rem;
+  }
+
+  .format-info-left {
+    width: 100%;
+  }
+
+  .format-res {
+    font-size: 0.95rem;
+  }
+
+  .format-action {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 0.6rem;
+  }
+
+  .format-size {
+    font-size: 0.85rem;
+  }
+
+  .format-action .btn {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+    border-radius: 0.4rem;
+  }
+
+  .progress-card {
+    gap: 1rem;
+  }
+
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .progress-title-group {
+    width: 100%;
+  }
+
+  .progress-status-title {
+    font-size: 1rem;
+  }
+
+  .progress-video-title {
+    font-size: 0.85rem;
+    max-width: 100%;
+  }
+
+  .progress-percent {
+    font-size: 1.4rem;
+    align-self: flex-end;
+  }
+
+  .progress-bar-container {
+    height: 0.5rem;
+  }
+
+  .progress-stats {
+    gap: 0.75rem;
+  }
+
+  .stat-box {
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  .stat-val {
+    font-size: 0.95rem;
+  }
+
+  .alert {
+    padding: 0.85rem 1rem;
+    border-radius: 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
