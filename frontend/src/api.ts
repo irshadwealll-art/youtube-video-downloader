@@ -36,7 +36,15 @@ export interface DownloadTask {
   outputFilePath: string | null;
 }
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080/api/video';
+const getApiBase = () => {
+  if (import.meta.env.VITE_API_BASE) {
+    return import.meta.env.VITE_API_BASE;
+  }
+  // Fall back to the active page's host (e.g. localhost or local IP) on port 8080
+  const hostname = window.location.hostname;
+  return `http://${hostname}:8080/api/video`;
+};
+const API_BASE = getApiBase();
 
 export async function fetchVideoInfo(url: string): Promise<VideoInfo> {
   const response = await fetch(`${API_BASE}/info?url=${encodeURIComponent(url)}`);
