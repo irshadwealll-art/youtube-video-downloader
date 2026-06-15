@@ -57,15 +57,34 @@ public class VideoDownloaderService {
         return binaryName;
     }
 
+    private void appendCookieArgs(List<String> command) {
+        String userDir = System.getProperty("user.dir");
+        File cookiesFileRoot = new File(userDir, "cookies.txt");
+        File cookiesFileBackend = new File(userDir, "backend/cookies.txt");
+        
+        if (cookiesFileRoot.exists()) {
+            command.add("--cookies");
+            command.add(cookiesFileRoot.getAbsolutePath());
+        } else if (cookiesFileBackend.exists()) {
+            command.add("--cookies");
+            command.add(cookiesFileBackend.getAbsolutePath());
+        }
+    }
+
     public VideoInfo getVideoInfo(String url) throws Exception {
         String ytDlpPath = getBinaryPath("yt-dlp");
         
-        ProcessBuilder pb = new ProcessBuilder(
+        List<String> command = new ArrayList<>(Arrays.asList(
                 ytDlpPath,
                 "--dump-json",
                 "--no-playlist",
-                url
-        );
+                "--geo-bypass",
+                "--no-check-certificates"
+        ));
+        appendCookieArgs(command);
+        command.add(url);
+        
+        ProcessBuilder pb = new ProcessBuilder(command);
         pb.redirectErrorStream(true);
         Process process = pb.start();
 
@@ -183,8 +202,11 @@ public class VideoDownloaderService {
                 "-o", outputTemplate,
                 "--ffmpeg-location", ffmpegPath,
                 "--no-playlist",
-                task.getUrl()
+                "--geo-bypass",
+                "--no-check-certificates"
         ));
+        appendCookieArgs(command);
+        command.add(task.getUrl());
 
         try {
             ProcessBuilder pb = new ProcessBuilder(command);
