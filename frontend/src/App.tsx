@@ -175,9 +175,38 @@ export default function App() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
             </svg>
           </div>
-          <h1 className="app-title">YTube.Flow</h1>
+          <h1 className="app-title">FlowDownloader</h1>
         </div>
-        <p className="app-subtitle">Download high quality YouTube video and audio instantly</p>
+        <p className="app-subtitle">Download HD Videos & Audio from YouTube, Instagram, TikTok & Twitter/X instantly</p>
+        
+        <div className="platform-badges">
+          <span className="platform-badge yt">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="badge-icon">
+              <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            YouTube
+          </span>
+          <span className="platform-badge ig">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="badge-icon">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+            Instagram
+          </span>
+          <span className="platform-badge tt">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="badge-icon">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .57.04.84.11V9.5a7.21 7.21 0 0 0-3.15-.31 7.24 7.24 0 0 0-5.32 6.77 7.23 7.23 0 0 0 11.63 6.1 7.18 7.18 0 0 0 3.16-5.88V8.77a10.17 10.17 0 0 0 6.64 2.14V7.5a6.07 6.07 0 0 1-3.74-1.81z"/>
+            </svg>
+            TikTok
+          </span>
+          <span className="platform-badge tw">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="badge-icon">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            Twitter / X
+          </span>
+        </div>
       </header>
 
       {/* URL Input Card */}
@@ -188,12 +217,13 @@ export default function App() {
               <input
                 type="text"
                 className="input-field"
-                placeholder="Paste YouTube video link here..."
+                placeholder="Paste video or post link here (YouTube, Instagram, TikTok, Twitter...)"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 disabled={loadingInfo}
                 required
               />
+
               <span className="input-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" style={{ width: '1.25rem', height: '1.25rem' }}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
