@@ -1,0 +1,22 @@
+# Local JDK and Maven
+/jdk/
+/maven/
+/jdk_temp/
+/maven_temp/
+/ffmpeg_temp/
+/*.zip
+
+# Backend output and binaries
+/backend/target/
+/backend/temp/
+/backend/bin/yt-dlp.exe
+/backend/bin/ffmpeg.exe
+/backend/bin/ffprobe.exe
+
+# Frontend output and dependencies
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.eslintcache
+
+# Logs
+*.log
