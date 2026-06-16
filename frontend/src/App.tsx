@@ -9,7 +9,7 @@ import {
 import type { VideoInfo, DownloadTask, FormatOption } from './api';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'youtube' | 'instagram' | 'tiktok' | 'twitter'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'youtube' | 'instagram' | 'tiktok' | 'twitter' | 'facebook'>('home');
   const [url, setUrl] = useState('');
   const [loadingInfo, setLoadingInfo] = useState(false);
   const [videoInfo, setVideoInfo] = useState<VideoInfo | null>(null);
@@ -226,6 +226,18 @@ export default function App() {
             </svg>
           )
         };
+      case 'facebook':
+        return {
+          title: 'Facebook Downloader',
+          subtitle: 'Download Facebook Videos and Reels in High Quality',
+          placeholder: 'Paste Facebook video or Reel link here...',
+          themeClass: 'fb-theme',
+          icon: (
+            <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '1.75rem', height: '1.75rem' }}>
+              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+            </svg>
+          )
+        };
       default:
         return {
           title: '',
@@ -282,6 +294,15 @@ export default function App() {
           <p>Extract high-quality MP4 video streams and GIF media directly from any Twitter or X post link.</p>
           <span className="service-link">Open Twitter Downloader &rarr;</span>
         </div>
+
+        <div className="service-card fb" onClick={() => setCurrentPage('facebook')}>
+          <div className="service-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+          </div>
+          <h3>Facebook Downloader</h3>
+          <p>Download Facebook videos and public reels in high definition with high-speed download streams.</p>
+          <span className="service-link">Open Facebook Downloader &rarr;</span>
+        </div>
       </div>
 
       <div className="about-section">
@@ -322,6 +343,7 @@ export default function App() {
           <button className={`nav-link ${currentPage === 'home' ? 'active' : ''}`} onClick={() => setCurrentPage('home')}>Home</button>
           <button className={`nav-link ${currentPage === 'youtube' ? 'active' : ''}`} onClick={() => setCurrentPage('youtube')}>YouTube</button>
           <button className={`nav-link ${currentPage === 'instagram' ? 'active' : ''}`} onClick={() => setCurrentPage('instagram')}>Instagram</button>
+          <button className={`nav-link ${currentPage === 'facebook' ? 'active' : ''}`} onClick={() => setCurrentPage('facebook')}>Facebook</button>
           <button className={`nav-link ${currentPage === 'tiktok' ? 'active' : ''}`} onClick={() => setCurrentPage('tiktok')}>TikTok</button>
           <button className={`nav-link ${currentPage === 'twitter' ? 'active' : ''}`} onClick={() => setCurrentPage('twitter')}>Twitter/X</button>
         </div>

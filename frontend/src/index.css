@@ -659,6 +659,14 @@ body {
   border-color: rgba(255, 255, 255, 0.35);
 }
 
+.platform-badge.fb {
+  color: #1877f2;
+}
+.platform-badge.fb:hover {
+  background: rgba(24, 119, 242, 0.1);
+  border-color: rgba(24, 119, 242, 0.3);
+}
+
 @keyframes progressPulse {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -986,6 +994,7 @@ body {
 .service-card.ig::after { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
 .service-card.tt::after { background: #00f2fe; }
 .service-card.tw::after { background: #ffffff; }
+.service-card.fb::after { background: #1877f2; }
 
 .service-card:hover {
   transform: translateY(-5px);
@@ -1008,6 +1017,7 @@ body {
 .service-card.ig .service-icon { color: #ff3e6c; background: rgba(255, 62, 108, 0.05); }
 .service-card.tt .service-icon { color: #00f2fe; background: rgba(0, 242, 254, 0.05); }
 .service-card.tw .service-icon { color: #ffffff; background: rgba(255, 255, 255, 0.05); }
+.service-card.fb .service-icon { color: #1877f2; background: rgba(24, 119, 242, 0.05); }
 
 .service-icon svg {
   width: 1.75rem;
@@ -1089,6 +1099,7 @@ body {
 .platform-header .logo-icon.ig-theme { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); box-shadow: 0 0 25px rgba(220, 39, 67, 0.45); }
 .platform-header .logo-icon.tt-theme { background: #010101; border: 1.5px solid #00f2fe; box-shadow: 0 0 25px rgba(0, 242, 254, 0.3); }
 .platform-header .logo-icon.tw-theme { background: #111; border: 1px solid #333; box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); }
+.platform-header .logo-icon.fb-theme { background: #1877f2; box-shadow: 0 0 25px rgba(24, 119, 242, 0.45); }
 
 @media (max-width: 768px) {
   .services-grid {
