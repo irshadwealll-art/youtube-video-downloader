@@ -61,6 +61,7 @@ public class VideoDownloaderService {
         String userDir = System.getProperty("user.dir");
         File cookiesFileRoot = new File(userDir, "cookies.txt");
         File cookiesFileBackend = new File(userDir, "backend/cookies.txt");
+        File cookiesFileParent = new File(userDir, "../cookies.txt");
         
         if (cookiesFileRoot.exists()) {
             command.add("--cookies");
@@ -68,6 +69,9 @@ public class VideoDownloaderService {
         } else if (cookiesFileBackend.exists()) {
             command.add("--cookies");
             command.add(cookiesFileBackend.getAbsolutePath());
+        } else if (cookiesFileParent.exists()) {
+            command.add("--cookies");
+            command.add(cookiesFileParent.getAbsolutePath());
         }
     }
 
