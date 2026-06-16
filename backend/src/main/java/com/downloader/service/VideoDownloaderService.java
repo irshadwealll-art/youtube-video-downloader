@@ -57,19 +57,44 @@ public class VideoDownloaderService {
         return binaryName;
     }
 
+    private boolean isValidCookiesFile(File file) {
+        if (file == null || !file.exists() || !file.isFile()) {
+            return false;
+        }
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (line.isEmpty()) {
+                    continue;
+                }
+                if (line.startsWith("# Netscape HTTP Cookie File") || line.startsWith("# HTTP Cookie File")) {
+                    return true;
+                }
+                if (line.startsWith("#")) {
+                    continue;
+                }
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
+
     private void appendCookieArgs(List<String> command) {
         String userDir = System.getProperty("user.dir");
         File cookiesFileRoot = new File(userDir, "cookies.txt");
         File cookiesFileBackend = new File(userDir, "backend/cookies.txt");
         File cookiesFileParent = new File(userDir, "../cookies.txt");
         
-        if (cookiesFileRoot.exists()) {
+        if (isValidCookiesFile(cookiesFileRoot)) {
             command.add("--cookies");
             command.add(cookiesFileRoot.getAbsolutePath());
-        } else if (cookiesFileBackend.exists()) {
+        } else if (isValidCookiesFile(cookiesFileBackend)) {
             command.add("--cookies");
             command.add(cookiesFileBackend.getAbsolutePath());
-        } else if (cookiesFileParent.exists()) {
+        } else if (isValidCookiesFile(cookiesFileParent)) {
             command.add("--cookies");
             command.add(cookiesFileParent.getAbsolutePath());
         }
